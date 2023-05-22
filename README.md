@@ -29,7 +29,7 @@ cd GroupRecipeApp
 ```
 3. Install the necessary dependencies for the React application by running the following command:
 ```
-cd GroupRecipeApp/client
+cd /GroupRecipeApp/client
 npm install
 ```
 4. Install Flask using pip, preferably in a virtual environment:
