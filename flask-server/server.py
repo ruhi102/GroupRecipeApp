@@ -1,8 +1,11 @@
 import datetime
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, flash, redirect, url_for, render_template
+
+
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS, cross_origin
-from models import db, User
+from models import db, User, Recipe
+
 
 app = Flask(__name__)
 
@@ -99,6 +102,76 @@ def login_user():
         "id": user.id,
         "email": user.email
     })
+
+
+@app.route("/user", methods=["GET"])
+def get_user():
+    users = User.query.all()
+    user_list = []
+    for user in users:
+        user_data = {
+            'id': user.id,
+            'email': user.email,
+            'password': user.password
+        }
+        user_list.append(user_data)
+    return jsonify(user_list)
+
+
+@app.route("/recipe", methods=["POST"])
+def create_recipe():
+    title = request.json["title"]
+    summary = request.json["summary"]
+    instructions = request.json["instructions"]
+    ingredients = request.json["ingredients"]
+    image_url = request.json["image_url"]
+
+    recipe = Recipe(title, summary, instructions, ingredients, image_url)
+    db.session.add(recipe)
+    db.session.commit()
+
+    # Perform any necessary processing with the received data
+    # ...
+
+    return jsonify({
+        "message": "Recipe successfully received and processed",
+        "title": title,
+        "summary": summary,
+        "instructions": instructions,
+        "ingredients": ingredients,
+        "image_url": image_url
+    })
+
+
+@app.route("/recipes", methods=["GET"])
+def get_recipes():
+    recipes = Recipe.query.all()
+    recipe_list = []
+    for recipe in recipes:
+        recipe_data = {
+            "id": recipe.id,
+            "title": recipe.title,
+            "summary": recipe.summary,
+            "instructions": recipe.instructions,
+            "ingredients": recipe.ingredients,
+            "image_url": recipe.image_url
+        }
+        recipe_list.append(recipe_data)
+    return jsonify(recipe_list)
+
+
+@app.route("/recipes/<id>", methods=["GET"])
+def get_recipe(id):
+    recipe = Recipe.query.filter_by(id=id).one()
+    recipe_data = {
+        "id": recipe.id,
+        "title": recipe.title,
+        "summary": recipe.summary,
+        "instructions": recipe.instructions,
+        "ingredients": recipe.ingredients,
+        "image_url": recipe.image_url
+    }
+    return jsonify(recipe_data)
 
 
 # Running app

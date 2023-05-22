@@ -16,7 +16,7 @@ export default function RegisterPage(){
         })
         .then(function (response) {
              console.log(response);
-            navigate("/");
+            navigate("/login");
         })
         .catch(function (error) {
             console.log(error, 'error');
@@ -29,7 +29,7 @@ export default function RegisterPage(){
   return (
     <div>
       <div className="auth-form-container">
-      <h2>Register</h2>
+      <h2><b>Rec🍴pe</b></h2>
       <form className="register-form">
         <label className="form-label" for="form3Example3">Email address</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="form3Example3" className="form-control form-control-lg" placeholder="Enter a valid email address" />
@@ -38,7 +38,7 @@ export default function RegisterPage(){
         <button type="button" className="btn btn-primary btn-lg" onClick={() => registerUser()} >Sign Up</button>
           <p className="small fw-bold mt-2 pt-1 mb-0">Login to your account <a href="/login" className="link-danger">Login</a></p>
       </form>
-      <p className="link-btn"><a href="/">Go to main page</a></p>
+      {/* <p className="link-btn"><a href="/">Go to main page</a></p> */}
     </div>
       
     </div>
