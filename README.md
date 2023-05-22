@@ -3,6 +3,12 @@
 **Recipe App** is an React-Flask app that allows users to register and login to view the Vegetarian Recipes and also create their own recipes on Create Recipe 
 so other users can view the recipes created. It has ReactJs for the application with Flask as the server.
 
+# Folder Directory
+```
+client
+flask-server
+virtual
+```
 # Prerequisites
 Before getting started, ensure that you have the following dependencies installed on your system:
 * [ ] Node.js
@@ -23,6 +29,7 @@ cd GroupRecipeApp
 ```
 3. Install the necessary dependencies for the React application by running the following command:
 ```
+cd GroupRecipeApp/client
 npm install
 ```
 4. Install Flask using pip, preferably in a virtual environment:
