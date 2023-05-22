@@ -29,7 +29,7 @@ cd GroupRecipeApp
 ```
 3. Install the necessary dependencies for the React application by running the following command:
 ```
-cd /GroupRecipeApp/client
+cd client
 npm install
 ```
 4. Install Flask using pip, preferably in a virtual environment:
@@ -44,6 +44,7 @@ python app.py
 ```
 6. Open another terminal window and navigate to the project directory. Start the React development server with the following command:
 ```
+cd client
 npm start
 ```
 7. The application should now be accessible in your browser at http://localhost:3000.
