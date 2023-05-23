@@ -36,6 +36,7 @@ npm install
 ```
 cd flask-server
 pip install flask
+```
 
 5. Install database PostgreSQL since we are using that for our application
 ```
