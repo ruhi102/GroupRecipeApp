@@ -32,7 +32,7 @@ cd GroupRecipeApp
 cd client
 npm install
 ```
-4. Install Flask using pip, preferably in flask-server:
+4. Install Flask using pip, preferably in flask-server (install modules if terminal asks)
 ```
 cd flask-server
 pip install flask
@@ -49,13 +49,13 @@ sudo -u postgres psql
 ```
 8. Since we have added the users using our own database create database signup in terminal
 ```
-CREATE DATABASE signup;
+CREATE DATABASE signup on different terminal (optional)
 ```
-9. After that alter the password for the databse as this 'SQLALCHEMY_DATABASE_URI' has a different password
+9. Alter the password for the databse as this 'SQLALCHEMY_DATABASE_URI' has a set password for the database on server.py
 ```
-ALTER USER postgres WITH PASSWORD 'new_password';
+ALTER USER postgres WITH PASSWORD '456';
 ```
-10. Quit the database using this command
+10. Quit the database using this command on a different terminal
 ```
 \q
 ```
