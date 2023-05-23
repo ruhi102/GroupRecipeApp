@@ -32,15 +32,14 @@ cd GroupRecipeApp
 cd client
 npm install
 ```
-4. Install Flask using pip, preferably in a virtual environment:
+4. Install Flask using pip, preferably in flask-server:
 ```
-python3 -m venv venv
-source venv/bin/activate
+cd flask-server
 pip install flask
 ```
 5. Start the Flask server by running the following command:
 ```
-python app.py
+python server.py
 ```
 6. Open another terminal window and navigate to the project directory. Start the React development server with the following command:
 ```
