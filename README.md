@@ -42,7 +42,7 @@ pip install flask
 ```
 sudo apt install postgresql
 ```
-6. Create userbase(optional)
+6. Create database(optional)
 7. Make changes on database using this command
 ```
 sudo -u postgres psql
